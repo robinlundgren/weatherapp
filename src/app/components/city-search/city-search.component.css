@@ -1,0 +1,44 @@
+.search {
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 15%;
+    color:  rgb(26, 42, 42); 
+    font-family: 'Raleway', sans-serif; 
+    font-size: 45px; 
+    font-weight: 800; 
+    line-height: 72px;
+    text-transform: uppercase;
+}
+
+h2 {
+    text-align: center;
+    color:  rgb(26, 42, 42); 
+    font-family: 'Source Sans Pro', sans-serif; 
+    font-size: 28px; 
+    font-weight: 400; 
+    line-height: 32px; 
+    margin: 0 0 24px;
+}
+
+.search-field {
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px;
+}
+
+.search-button {
+    right: -50px;
+    width: 60px;
+    height: 36px;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    font-size: 20px;
+}

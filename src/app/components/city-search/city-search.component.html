@@ -1,0 +1,30 @@
+<h1>Väderapplikation</h1>
+<h2> Robin Lundgren, NGWEK16h </h2>
+
+<!-- Följande kod lägger upp strukturen för söksidan-->
+
+<!-- Sökrutan använder "onForm" för att med hjälp av
+(ngModel) spara det inskrivna värdet i en klickbar länklista -->
+<div class="search">
+    <input type="text" class="search-field" [(ngModel)]="city" placeholder="Stadens namn...">
+    <button type="submit" class="search-button" (click)="onForm()">
+        <i class="fa fa-search"></i>
+    </button>
+
+<!-- I tabellen sparas värdet i länklistan. Får användaren 
+upp en länk så aktiveras "onSubmit" och routar vidare till detail
+där väderinformationen om den valda staden dyker upp -->
+    <table>
+        <thead>
+            <tr>
+                <th>Stadens namn | </th>
+                <th>Landskod</th>
+            </tr>
+        </thead>
+        <tr *ngIf="weather">
+            <td><a (click)="onSubmit()" routerLink="detail">{{weather.name}}</a></td>
+            <td>{{weather.sys.country}}</td>
+        </tr>
+    </table>
+
+</div>

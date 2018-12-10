@@ -1,0 +1,62 @@
+<!-- Detta dokument skriver ut attributvärden
+från API:t i tabeller -->
+<table id="head" *ngIf="weather">
+  <caption>Väderleksrapport för {{weather.name}}</caption>
+  <thead>
+    <tr>
+      <th>Stad </th>
+      <th>Latitud </th>
+      <th>Longitud </th>
+      <th>Temperatur </th>
+      <th>Väder </th>
+      <th>Vindhastighet </th>
+      <th>Vindriktning </th>
+      <th>Soluppgång </th>
+      <th>Solnedgång </th>
+      <th>Molnighet </th>
+      <th>Nederbörd: Snö </th>
+      <th>Nederbörd: Regn </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>{{weather.name}}</td>
+      <td>{{weather.coord.lat}}</td>
+      <td>{{weather.coord.lon}}</td>
+      <td>{{weather.main.temp}}&#8451;</td>
+      <td>{{weather.weather[0].description}}</td>
+      <td>{{weather.wind.speed}} m/s</td>
+      <td>{{weather.wind.deg}}&deg;</td>
+      <td>{{weather.sys.sunrise * 1000 | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+      <td>{{weather.sys.sunset * 1000 | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+      <td>{{weather.clouds.all}}%</td>
+      <td>{{weather.snow ? weather.snow["1h"] : "0"}}mm</td>
+      <td>{{weather.rain ? weather.rain["1h"] : "0"}}mm</td>
+    </tr>
+  </tbody>
+</table><br>
+
+<h1>Långsiktig prognos</h1>
+<table id="head" *ngIf="forecast">
+  <thead>
+    <tr>
+      <th>Datum</th>
+      <th>Temperatur</th>
+      <th>Vindhastighet</th>
+      <th>Lufttryck</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of forecast | weatherPipes">
+      <td>{{item.dt * 1000 | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+      <td>{{item.main.temp}}&#8451;</td>
+      <td>{{item.wind.speed}} m/s</td>
+      <td>{{item.main.pressure}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<button (click)="goBack()">
+  Gå tillbaka
+</button>
